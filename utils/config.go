@@ -2,7 +2,7 @@ package utils
 
 import (
 	"encoding/json"
-	"fmt"
+	"im/log"
 	"os"
 )
 
@@ -19,7 +19,7 @@ func LoadConfig(path string) {
 	// 打开文件
 	file, err := os.Open(path)
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Error(err.Error())
 	}
 
 	// 创建json解析器
@@ -28,6 +28,6 @@ func LoadConfig(path string) {
 	// json解析并将数据填入Configuration中
 	err = decoder.Decode(&Config)
 	if err != nil {
-		fmt.Println(err.Error())
+		log.Error(err.Error())
 	}
 }
