@@ -19,10 +19,6 @@ func main() {
 	// 创建多路复用器
 	mux := http.NewServeMux()
 
-	// 静态文件服务
-	file := http.Dir(utils.Config.Static)
-	mux.Handle("/", http.FileServer(file))
-
 	// 配置http服务
 	server := &http.Server{
 		Addr:    utils.Config.Address,
