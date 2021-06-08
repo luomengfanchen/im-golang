@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"im/service"
 	"im/utils"
 	"net/http"
 )
@@ -18,6 +19,9 @@ func init() {
 func main() {
 	// 创建多路复用器
 	mux := http.NewServeMux()
+
+	// 登录认证
+	mux.HandleFunc("/api/login", service.Login)
 
 	// 配置http服务
 	server := &http.Server{

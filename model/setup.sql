@@ -7,7 +7,6 @@ CREATE TABLE user_t (
     token    VARCHAR(64)  NOT NULL,
     email    VARCHAR(64)  NOT NULL,
     name     VARCHAR(10)  NOT NULL,
-    avator   VARCHAR(64)  DEFAULT 'default_avator.png',
     password VARCHAR(255) NOT NULL,
     createAt DATE         NOT NULL
 );
