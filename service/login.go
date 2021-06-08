@@ -26,6 +26,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	utils.ResponseJSON(w, http.StatusOK, utils.H{
 		"message": "success",
 		"status":  200,
+		"uid":     user.Uid,
 		"email":   user.Email,
 		"name":    user.Name,
 	})

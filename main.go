@@ -23,6 +23,8 @@ func main() {
 	// 登录认证
 	mux.HandleFunc("/api/login", service.Login)
 
+	mux.HandleFunc("/api/friend", service.Friend)
+
 	// 配置http服务
 	server := &http.Server{
 		Addr:    utils.Config.Address,
