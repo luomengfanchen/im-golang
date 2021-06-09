@@ -14,7 +14,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	name := r.Form.Get("username")
 	passwd := r.Form.Get("password")
 
-	user, err := model.Auth(name, passwd)
+	user, err := model.AuthUser(name, passwd)
 	if err != nil {
 		utils.ResponseJSON(w, http.StatusBadRequest, utils.H{
 			"message": "failure",
@@ -24,10 +24,14 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.ResponseJSON(w, http.StatusOK, utils.H{
+		"data": utils.H {
+			"uid": user.Uid,
+			"name": user.Name,
+			"email": user.Email,
+			"token": user.Token,
+		},
 		"message": "success",
 		"status":  200,
-		"uid":     user.Uid,
-		"email":   user.Email,
-		"name":    user.Name,
+		
 	})
 }

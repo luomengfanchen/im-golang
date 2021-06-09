@@ -15,7 +15,7 @@ func Friend(w http.ResponseWriter, r *http.Request) {
 	id := r.Form.Get("id")
 
 	uid, _ := strconv.ParseInt(id, 10, 64)
-	list, err := model.FriendList(uid)
+	list, err := model.QueryFriendAll(uid)
 	if err != nil {
 		log.Warning(err.Error())
 	}
