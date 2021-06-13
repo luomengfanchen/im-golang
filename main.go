@@ -23,7 +23,11 @@ func main() {
 	// 登录认证
 	mux.HandleFunc("/api/login", service.Login)
 
+	// 好友列表
 	mux.HandleFunc("/api/friend", service.Friend)
+
+	// 聊天记录
+	mux.HandleFunc("/api/chatlist", service.ChatList)
 
 	// 配置http服务
 	server := &http.Server{

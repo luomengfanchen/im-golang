@@ -24,14 +24,13 @@ func Login(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.ResponseJSON(w, http.StatusOK, utils.H{
-		"data": utils.H {
-			"uid": user.Uid,
-			"name": user.Name,
+		"data": utils.H{
+			"uid":   user.Uid,
+			"name":  user.Name,
 			"email": user.Email,
 			"token": user.Token,
 		},
 		"message": "success",
 		"status":  200,
-		
 	})
 }
