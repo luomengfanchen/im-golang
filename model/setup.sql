@@ -22,7 +22,7 @@ CREATE TABLE chat_t (
     cid      SERIAL       PRIMARY KEY,
     sendId   INT          NOT NULL,
     recvId   INT          NOT NULL,
-    sendDate DATE         NOT NULL,
+    sendDate TIMESTAMP    NOT NULL,
     msg      VARCHAR(255) NOT NULL,
     unRead   BOOLEAN      NOT NULL
 );
@@ -38,7 +38,7 @@ INSERT INTO friend_t (uid, fid) VALUES
     (1001, 1003), (1003, 1001);
 
 INSERT INTO chat_t (sendId, recvId, sendDate, msg, unRead) VALUES
-    (1001, 1002, '2021-06-06', 'hello', TRUE),
-    (1001, 1002, '2021-06-06', 'world', TRUE),
-    (1002, 1001, '2021-06-07', '你好', TRUE),
-    (1002, 1001, '2021-06-07', '世界', TRUE);
+    (1001, 1002, '2021-06-06 10:10:10', 'hello', TRUE),
+    (1001, 1002, '2021-06-06 10:10:12', 'world', TRUE),
+    (1002, 1001, '2021-06-07 10:10:14', '你好', TRUE),
+    (1002, 1001, '2021-06-07 10:10:20', '世界', TRUE);

@@ -33,13 +33,14 @@ func QueryChat(uid int64, fid int64) ([]Chat, error) {
 
 // 插入聊天记录
 func InsertChatRow(sendId int, recvId int, msg string) error {
-	stmt, err := Db.Prepare("INSERT INTO chat_t (sendId, recvId, msg, unRead) VALUES ($1, $2, $3, $4)")
+	stmt, err := Db.Prepare("INSERT INTO chat_t (sendId, recvId, sendDate, msg, unRead) VALUES ($1, $2, $3, $4, $5)")
 	if err != nil {
 		log.Warning(err.Error())
 	}
 	defer stmt.Close()
 
-	err = stmt.QueryRow(sendId, recvId, msg, time.Now().Format("2006-01-02 15:04:05")).Err()
+	nowTime := time.Now().Format("2006-01-02 15:04:05")
+	err = stmt.QueryRow(sendId, recvId,nowTime, msg, true).Err()
 	if err != nil {
 		log.Warning(err.Error())
 	}

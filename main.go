@@ -26,8 +26,11 @@ func main() {
 	// 好友列表
 	mux.HandleFunc("/api/friend", service.Friend)
 
-	// 聊天记录
+	// 获取聊天记录
 	mux.HandleFunc("/api/chatlist", service.ChatList)
+
+	// 发送聊天记录
+	mux.HandleFunc("/api/chat", service.Chat)
 
 	// 配置http服务
 	server := &http.Server{
